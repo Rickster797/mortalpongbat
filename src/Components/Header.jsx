@@ -16,16 +16,10 @@ class Header extends Component {
 const mainHeader = {
   fontFamily: 'Nunito Sans',
   textAlign: "center",
-  color: "blue",
+  color: "white",
   backgroundColor: "red",
   borderRadius: 2,
-};
-
-const headerDiv = {
-  backgroundColor: "#181819",
-  height: 70,
-  borderRadius: 2,
-  boxShadow: '0px 2px 10px 1px rgba(0,0,0,0.75)',
+  padding: 10
 };
 
 const hrStyle = {
