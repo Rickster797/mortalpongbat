@@ -6,17 +6,7 @@ class AddPlayers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      players: [
-        { name: "Player1:", value: "" },
-        { name: "Player2:", value: "" },
-        { name: "Player3:", value: "" },
-        { name: "Player4:", value: "" },
-        { name: "Player5:", value: "" },
-        { name: "Player6:", value: "" },
-        { name: "Player7:", value: "" },
-        { name: "Player8:", value: "" }
-
-      ]
+      players: []
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -31,21 +21,13 @@ class AddPlayers extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    let newUserData = {
-      name: "name",
-      email: this.state.fields[0].value,
-      password: this.state.fields[0].value
-    };
-
-    this.props.registerUser(newUserData);
-
     this.setState({
-      email: "",
-      password: ""
+      players: ""
     });
   }
 
   render() {
+    const { players } = this.props;
     return (
       <Fragment>
         <div> 

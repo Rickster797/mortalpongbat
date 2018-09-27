@@ -2,9 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
-  // componentDidMount() {
-  //       this.props.onLoad()
-  //   }
 
   render() {
     return (
