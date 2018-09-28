@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import shuffle from 'shuffle-array';
+import RoundTwo from './RoundTwo';
 
 class TournamentBracket extends Component {
 
@@ -8,7 +9,7 @@ class TournamentBracket extends Component {
 
     this.state = this.init(this.props.players, 1);
   }
-
+  /** to determine state, passing in players prop and round number prop */
   init(players, roundNumber) {
     const matches = [];
     shuffle(players);
@@ -24,7 +25,9 @@ class TournamentBracket extends Component {
       players: players,
       matches: matches,
       winners: [],
-      roundNumber: roundNumber
+      roundOver: false,
+      roundNumber: roundNumber,
+      finalRound: false
     };
   }
 
@@ -56,6 +59,7 @@ class TournamentBracket extends Component {
     if (winners.length >= this.state.matches.length) {
 
       /** TODO - Continue here... */
+      this.setState({ roundOver: true });
       console.warn('Winners Array is complete!', winners);
       console.log(this.state);
 
@@ -75,6 +79,7 @@ class TournamentBracket extends Component {
 
   render() {
     const roundOver = this.state.roundOver;
+    const roundNumber = this.state.roundNumber;
     return (
       <Fragment>
         <h2>Round { this.state.roundNumber }... Fight!</h2>
@@ -86,6 +91,8 @@ class TournamentBracket extends Component {
           <hr />
         </div>
         ))}
+        <button style={ roundOver ? nextRound : finishThem }>Proceed to round {roundNumber+1}... if you dare</button> 
+        {this.state.roundOver ? <RoundTwo winners={this.state.winners} roundNumber={this.state.roundNumber+1} finalRound={this.state.finalRound} /> : null}
       </Fragment>
     );
   }
@@ -106,6 +113,14 @@ const matchesBox = {
   border: 'black 1 solid',
   boxShadow: "0 0 8px 1px black",
   margin: 10,
+};
+
+const finishThem = {
+  backgroundColor: 'grey',
+};
+
+const nextRound = {
+  backgroundColor: 'green',
 };
 
 const buttonNeutralStyle = {

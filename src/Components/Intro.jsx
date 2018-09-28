@@ -19,7 +19,9 @@ constructor(props) {
 
   onSubmit(e) {
     e.preventDefault();
-    /** This forces the <AddPlayers/> component to re-render. */
+    /** arguably don't really need this logic since I've changed changed the
+     number input to a select as it made more sense given that only set amounts 
+     work for a sudden death tournament but seemed silly to change it */
     const players = this.state.players;
     if (players % 2 === 0 && players > 1 && players < 65) {
       this.setState({playerAmountValid : true});
