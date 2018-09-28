@@ -78,11 +78,10 @@ class TournamentBracket extends Component {
   }
 
   render() {
-    const roundOver = this.state.roundOver;
-    const roundNumber = this.state.roundNumber;
+    const {roundOver, roundNumber, winners, finalRound} = this.state;
     return (
       <Fragment>
-        <h2>Round { this.state.roundNumber }... Fight!</h2>
+        <h2>Round { roundNumber }... Fight!</h2>
         {this.state.matches.map((match, i) => (
         <div key={i} style={ divStyle }>
           <p style={matchesBox}>{ match[0].value }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].value }</p>
@@ -92,7 +91,7 @@ class TournamentBracket extends Component {
         </div>
         ))}
         <button style={ roundOver ? nextRound : finishThem }>Proceed to round {roundNumber+1}... if you dare</button> 
-        {this.state.roundOver ? <RoundTwo winners={this.state.winners} roundNumber={this.state.roundNumber+1} finalRound={this.state.finalRound} /> : null}
+        {roundOver ? <RoundTwo winners={winners} roundNumber={roundNumber+1} finalRound={finalRound} /> : null}
       </Fragment>
     );
   }

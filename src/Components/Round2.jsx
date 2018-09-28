@@ -86,11 +86,7 @@ class RoundTwo extends Component {
   }
 
   render() {
-    const roundOver = this.state.roundOver;
-    const roundNumber = this.state.roundNumber;
-    const winners = this.state.winners;
-    const finalRound = this.state.finalRound;
-    const matches = this.state.matches;
+   const { roundOver, roundNumber, winners, finalRound, matches } = this.state;
     return (
       <Fragment>
         <h2>Round { this.state.roundNumber }... Fight!</h2>
@@ -104,6 +100,7 @@ class RoundTwo extends Component {
         ))}
         <button style={ roundOver ? nextRound : finishThem }>Proceed to round {roundNumber+1}... if you dare</button> 
         {roundOver && matches.length > 1 ? <RoundTwo winners={this.state.winners} roundNumber={this.state.roundNumber+1}/> : null}
+        {finalRound ? <Winner winner = {winners} /> : null}
       </Fragment>
     );
   }
