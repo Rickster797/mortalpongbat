@@ -86,10 +86,10 @@ class RoundTwo extends Component {
   }
 
   render() {
-   const { roundOver, roundNumber, winners, finalRound, matches } = this.state;
+    const { roundOver, roundNumber, winners, finalRound, matches } = this.state;
     return (
       <Fragment>
-        <h2>Round { this.state.roundNumber }... Fight!</h2>
+        <h2>{ this.state.matches.length == 1 ? 'Final Round!' : `Round ${ roundNumber }... Fight!`}</h2>
         {this.state.matches.map((match, i) => (
         <div key={i} style={ divStyle }>
           <p style={matchesBox}>{ match[0].value }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].value }</p>
@@ -98,8 +98,8 @@ class RoundTwo extends Component {
           <hr />
         </div>
         ))}
-        <button style={ roundOver ? nextRound : finishThem }>Proceed to round {roundNumber+1}... if you dare</button> 
-        {roundOver && matches.length > 1 ? <RoundTwo winners={this.state.winners} roundNumber={this.state.roundNumber+1}/> : null}
+        {matches.length > 1 ? <button style={ roundOver ? nextRound : finishThem }>{ matches.length == 2 ? 'Final Round up next!' : `Proceed to round ${ roundNumber+1 }... if you dare`}</button> : null}
+        {roundOver && matches.length > 1 ? <RoundTwo winners={winners} roundNumber={roundNumber+1}/> : null}
         {finalRound ? <Winner winner = {winners} /> : null}
       </Fragment>
     );
