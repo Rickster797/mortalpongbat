@@ -84,9 +84,9 @@ class TournamentBracket extends Component {
         <h2>Round { roundNumber }... Fight!</h2>
         {this.state.matches.map((match, i) => (
         <div key={i} style={ divStyle }>
-          <p style={matchesBox}>{ match[0].value }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].value }</p>
-          <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].value + match[0].resultTxt }</button>
-          <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].value + match[1].resultTxt }</button>
+          <p style={matchesBox}>{ match[0].playerName }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].playerName }</p>
+          <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].playerName + match[0].resultTxt }</button>
+          <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].playerName + match[1].resultTxt }</button>
           <hr />
         </div>
         ))}

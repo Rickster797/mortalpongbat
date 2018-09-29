@@ -10,10 +10,13 @@ class Winner extends Component {
 
   render() {
 
-    const winner = this.state.winner[0].value;
+    const winner = this.state.winner[0].playerName;
 
     return (
-    <p>{winner} wins, flawless victory</p>
+      <Fragment>
+        <p>{winner} wins, flawless victory</p>
+        <iframe src="https://giphy.com/embed/7d7lKk2nH5RJu" width="480" height="323" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+      </Fragment>
     );
   };
 }

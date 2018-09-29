@@ -32,6 +32,7 @@ constructor(props) {
   }
 
   render() {
+    const playerAmountValid = this.state.playerAmountValid;
     return (
       <Fragment>
           <h2>How many are brave enough to enter?</h2>
@@ -43,7 +44,7 @@ constructor(props) {
                     <option value="16">16</option>
                     <option value="32">32</option>
                     <option value="64">64</option>
-                  </select>
+                  </select> 
                   <input style={{ marginLeft: 10 }} type="submit"></input>
               </form>
               <div style={{ height: 10 }}/>

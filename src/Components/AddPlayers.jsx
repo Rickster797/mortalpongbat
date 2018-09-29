@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from "react-router-dom";
 import NameGenerator from '../Data/NameGenerator';
 import TournamentBracket from './TournamentBracket';
 
@@ -7,7 +8,8 @@ class AddPlayers extends Component {
     super(props);
     this.state = {
       showTournament: false,
-      players: this.getNewPlayers(props.numberOfPlayers)
+      players: this.getNewPlayers(props.numberOfPlayers),
+      error: false
     };
   }
 
@@ -25,8 +27,7 @@ class AddPlayers extends Component {
         playerName = NameGenerator.getRandomName();
       }
       players.push({
-        id: i,
-        value: playerName,
+        playerName: playerName,
         win: false
       });
     }
@@ -36,26 +37,37 @@ class AddPlayers extends Component {
 
   onChange(e, i) {
     let players = this.state.players;
-    players[i].value = e.target.value;
+    players[i].playerName = e.target.value;
+    
     this.setState({
       players: players,
       showTournament: false
-    });
+    }); 
+    
 
     /** TODO - REMOVE */
     console.warn('onChange', this.state);
   }
 
-  onSubmit(e) {
+  onSubmit(e, i) {
     e.preventDefault();
-    this.setState({ 
-      showTournament: true });
+    let players = this.state.players;
+    if ( players[0].playerName !== "" ) {
+    this.setState({  
+      showTournament: true 
+    }); } else {
+    this.setState({  
+      error: true 
+    });
+    }
 
     /** TODO - REMOVE */
     console.log('onSubmit', this.state);
   }
 
   render() {
+    const error = this.state.error;
+    const errorMessage = "Please enter all player names or go back to player amount selection";
     return (
     <Fragment>
       <div>
@@ -69,11 +81,12 @@ class AddPlayers extends Component {
             </label>
             <input
             type="text"
-            value={player.value}
+            value={player.playerName}
             onChange={e => this.onChange(e, i)}/>
           </div>
           ))}
           <div style={{ height: 20 }}/>
+          {error ? errorMessage : null}
           <input
           onSubmit={e => this.onSubmit(e)}
           type="submit"
@@ -81,6 +94,10 @@ class AddPlayers extends Component {
           style={{ marginLeft: 30 }}
           value="Generate Tournament Bracket"
           />
+          <Link to={"/players/"}>
+          <button
+          className="btn btn-primary">Change number of combatants</button>
+          </Link>
         </form>
       </div>
       {this.state.showTournament ? <TournamentBracket players={this.state.players}/> : null}
