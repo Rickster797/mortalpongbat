@@ -52,13 +52,18 @@ class AddPlayers extends Component {
   onSubmit(e, i) {
     e.preventDefault();
     let players = this.state.players;
-    if ( players[0].playerName !== "" ) {
-    this.setState({  
-      showTournament: true 
-    }); } else {
-    this.setState({  
-      error: true 
-    });
+    let playersAreValid = true;
+    for (let i = 0; i < players.length; i++) {
+      if (players[i].playerName.trim() === "") {
+         playersAreValid = false
+         break;
+      }
+    }
+
+    if (playersAreValid) {
+    this.setState({showTournament: true}); 
+    } else {
+    this.setState({error: true });
     }
 
     /** TODO - REMOVE */
