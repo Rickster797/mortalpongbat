@@ -8,7 +8,7 @@ class AddPlayers extends Component {
     super(props);
     this.state = {
       showTournament: false,
-      players: this.getNewPlayers(props.numberOfPlayers),
+      players: this.getNewPlayers(props.location.state.numberOfPlayers),
       error: false
     };
   }
@@ -62,8 +62,13 @@ class AddPlayers extends Component {
 
     if (playersAreValid) {
     this.setState({showTournament: true}); 
+    this.props.history.push({
+      pathname: '/tournament',
+      state: { players: players }
+    })
+
     } else {
-    this.setState({error: true });
+    this.setState({error: true});
     }
 
     /** TODO - REMOVE */
@@ -105,7 +110,6 @@ class AddPlayers extends Component {
           </Link>
         </form>
       </div>
-      {this.state.showTournament ? <TournamentBracket players={this.state.players}/> : null}
     </Fragment>
     );
   }

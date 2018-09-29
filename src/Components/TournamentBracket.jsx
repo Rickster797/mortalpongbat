@@ -6,8 +6,8 @@ class TournamentBracket extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = this.init(this.props.players, 1);
+    console.log(props);
+    this.state = this.init(props.location.state.players, 1);
   }
   /** to determine state, passing in players prop and round number prop */
   init(players, roundNumber) {

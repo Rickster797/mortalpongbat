@@ -25,6 +25,12 @@ constructor(props) {
     const players = this.state.players;
     if (players % 2 === 0 && players > 1 && players < 65) {
       this.setState({playerAmountValid : true});
+
+      this.props.history.push({
+      pathname: '/players/names',
+      state: { numberOfPlayers : this.state.players }
+    })
+
     } else {
       this.setState({playerAmountValid : false});
 
@@ -44,13 +50,12 @@ constructor(props) {
                     <option value="16">16</option>
                     <option value="32">32</option>
                     <option value="64">64</option>
-                  </select> 
-                  <input style={{ marginLeft: 10 }} type="submit"></input>
+                  </select>
+                    <input style={{ marginLeft: 10 }} type="submit"></input>
               </form>
               <div style={{ height: 10 }}/>
               <p>{`Hit submit to create a Tournament for ${this.state.players} players`}</p>
           </div>
-          { this.state.playerAmountValid ? <AddPlayers numberOfPlayers={this.state.players} /> : null }
       </Fragment>
       )
   };
