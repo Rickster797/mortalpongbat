@@ -8,14 +8,18 @@ class StartScreen extends Component {
 	<Fragment>
 	<div className={'startScreenGradient'} style={divStyle}>
 		<iframe src="https://giphy.com/embed/31mFmfMQHaoSI" width="480" height="357" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
-		<p>Choose your destiny</p>
+		<p style={blackText}>Choose your destiny</p>
 		<Link to={"/players/"}>
-			<button className={'push--flat'}>Start</button>
+			<button style={blackText} className={'push--flat'}>Start</button>
 		</Link>
 	</div>
     </Fragment>
     )
   };
+}
+
+const blackText = {
+  color: 'black',
 }
 
 const divStyle = {

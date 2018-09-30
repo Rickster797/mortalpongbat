@@ -81,22 +81,22 @@ class AddPlayers extends Component {
     return (
     <Fragment>
       <div style={{margin: '0 auto 0 auto'}}>
-        <h2>Enter your players here</h2>
+        <h2 style={headerStyle}>Enter your players here</h2>
         <div style={{ height: 10 }}/>
         <form onSubmit={e => this.onSubmit(e)}>
           {this.state.players.map((player, i) => (
-          <div key={i}>
+          <div style={headerStyle} key={i}>
             <label style={labelStyle}>
             Player {i + 1}:
             </label>
             <input
-            style={backgroundColour}
+            style={inputStyle}
             type="text"
             value={player.playerName}
             onChange={e => this.onChange(e, i)}/>
           </div>
           ))}
-          <div style={{backgroundColor: 'black', marginTop: 20, marginBottom: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr'}}>
+          <div style={{ marginTop: 20, marginBottom: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr'}}>
               <div style={{ height: 20 }}/>
               {error ? errorMessage : null}
               <div style={{gridColumnStart: 1, gridColumnEnd: 2, gridRowStart: 1, GridRowEnd: 2, justifySelf: 'center', alignSelf: 'center'}}>
@@ -129,14 +129,22 @@ class AddPlayers extends Component {
   }
 }
 
+const headerStyle = {
+  textAlign: 'center',
+};
+
 const backgroundColour = {
+  backgroundColor: 'black',
+};
+
+const inputStyle = {
   backgroundColor: 'black',
 };
 
 const labelStyle = {
   width: 100,
-  textAlign: 'right',
-  paddingRight: 10         
+  textAlign: 'center',
+           
 };
 
 export default AddPlayers;

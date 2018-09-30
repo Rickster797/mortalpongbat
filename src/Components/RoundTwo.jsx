@@ -111,7 +111,7 @@ class RoundTwo extends Component {
 }
 
 const spanStyle = {
-  color: 'red',
+  color: 'gold',
   fontWeight: 'bold'
 };
 
@@ -137,7 +137,7 @@ const finishThem = {
 };
 
 const nextRound = {
-  backgroundColor: 'green',
+  backgroundColor: 'darkGreen',
 };
 
 const buttonNeutralStyle = {
@@ -153,7 +153,7 @@ const buttonWinStyle = {
   color: 'white',
   width: 125,
   margin: 5,
-  backgroundColor: 'green',
+  backgroundColor: 'darkGreen',
   boxShadow: "0 0 8px 1px black",
 };
 
@@ -162,7 +162,7 @@ const buttonLoseStyle = {
   color: 'white',
   width: 125,
   margin: 5,
-  backgroundColor: 'red',
+  backgroundColor: 'darkRed',
 };
 
 export default RoundTwo;
