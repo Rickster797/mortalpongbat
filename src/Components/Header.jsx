@@ -1,22 +1,27 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import '../css/fonts.css';
 
 class Header extends Component {
 
   render() {
     return (
       <Fragment>
-          <h2 style={mainHeader}>Mortal PongBat</h2>
-        <hr style={hrStyle} />
+        <div>
+          <h2 className={'headerColour'} style={mainHeader}>MORTAL PONGBAT</h2>
+          <hr style={hrStyle} />
+        </div>
       </Fragment>
       )
   };
 }
 
 const mainHeader = {
-  fontFamily: 'Nunito Sans',
+  fontFamily: 'Almendra',
+  fontWeight: 'bold',
+  color: 'white',
+  fontStyle: 'italic',
   textAlign: "center",
-  color: "white",
   backgroundColor: "black",
   borderRadius: 2,
   padding: 10

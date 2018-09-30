@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'mk5style';
+  font-style: normal;
+  src: local('mk5style'), local('mk5style'),
+    url('../fonts/mk5style.ttf') format('ttf'), 
+}
+
+/*@font-face {
+  font-family: 'CircularStd-Medium';
+  font-style: normal;
+  src: local('CircularStd-Medium'), local('CircularStd-Medium'),
+    url('../fonts/CircularStd-Medium.woff') format('woff'), 
+}*/

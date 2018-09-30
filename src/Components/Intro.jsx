@@ -41,24 +41,40 @@ constructor(props) {
     const playerAmountValid = this.state.playerAmountValid;
     return (
       <Fragment>
-          <h2>How many are brave enough to enter?</h2>
-          <div style={{ marginLeft: 30 }}>
-              <form onSubmit={e => this.onSubmit(e)}>
-                  <select onChange={ e => this.onChange(e) } value={this.state.players}>
-                    <option value="4">4</option>
-                    <option value="8">8</option>
-                    <option value="16">16</option>
-                    <option value="32">32</option>
-                    <option value="64">64</option>
-                  </select>
-                    <input style={{ marginLeft: 10 }} type="submit"></input>
-              </form>
-              <div style={{ height: 10 }}/>
-              <p>{`Hit submit to create a Tournament for ${this.state.players} players`}</p>
-          </div>
+        <div style={divStyle}>
+            <h2>How many are brave enough to enter?</h2>
+            <div style={{ marginLeft: 30 }}>
+                <form onSubmit={e => this.onSubmit(e)}>
+                    <select style={backgroundColour} onChange={ e => this.onChange(e) } value={this.state.players}>
+                      <option value="4">4</option>
+                      <option value="8">8</option>
+                      <option value="16">16</option>
+                      <option value="32">32</option>
+                      <option value="64">64</option>
+                    </select>
+                      <input style={submitButton} type="submit"></input>
+                </form>
+                <div style={{ height: 10 }}/>
+                <p>{`Hit submit to create a Tournament for ${this.state.players} players`}</p>
+            </div>
+        </div>
       </Fragment>
       )
   };
 }
+
+const divStyle = {
+  textAlign: 'center',
+};
+
+const backgroundColour = {
+  backgroundColor: 'black',
+};
+
+const submitButton = {
+  backgroundColor: 'black',
+  marginLeft: 10,
+};
+
 
 export default Intro;

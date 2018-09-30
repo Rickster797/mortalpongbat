@@ -5,6 +5,8 @@ import Intro from "./Components/Intro";
 import StartScreen from "./Components/StartScreen";
 import AddPlayers from "./Components/AddPlayers";
 import TournamentBracket from "./Components/TournamentBracket";
+import Winner from "./Components/Winner";
+import './css/fonts.css';
 
 class App extends Component {
   render() {
@@ -16,6 +18,7 @@ class App extends Component {
             <Route exact path="/players" component={ Intro } />
             <Route exact path="/players/names" component={ AddPlayers } />
             <Route exact path="/tournament" component={ TournamentBracket } />
+            <Route exact path="/champion" component={ Winner } />
           </Fragment>
       </Router>
     );

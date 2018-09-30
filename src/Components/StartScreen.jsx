@@ -6,7 +6,7 @@ class StartScreen extends Component {
   render() {
     return (
 	<Fragment>
-	<div style={divStyle}>
+	<div className={'startScreenGradient'} style={divStyle}>
 		<iframe src="https://giphy.com/embed/31mFmfMQHaoSI" width="480" height="357" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
 		<p>Choose your destiny</p>
 		<Link to={"/players/"}>

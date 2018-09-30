@@ -80,7 +80,7 @@ class AddPlayers extends Component {
     const errorMessage = "Please enter all player names or go back to player amount selection";
     return (
     <Fragment>
-      <div>
+      <div style={{margin: '0 auto 0 auto'}}>
         <h2>Enter your players here</h2>
         <div style={{ height: 10 }}/>
         <form onSubmit={e => this.onSubmit(e)}>
@@ -90,30 +90,48 @@ class AddPlayers extends Component {
             Player {i + 1}:
             </label>
             <input
+            style={backgroundColour}
             type="text"
             value={player.playerName}
             onChange={e => this.onChange(e, i)}/>
           </div>
           ))}
-          <div style={{ height: 20 }}/>
-          {error ? errorMessage : null}
-          <input
-          onSubmit={e => this.onSubmit(e)}
-          type="submit"
-          className="btn btn-success"
-          style={{ marginLeft: 30 }}
-          value="Generate Tournament Bracket"
-          />
-          <Link to={"/players/"}>
-          <button
-          className="btn btn-primary">Change number of combatants</button>
-          </Link>
+          <div style={{backgroundColor: 'black', marginTop: 20, marginBottom: 20, display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr'}}>
+              <div style={{ height: 20 }}/>
+              {error ? errorMessage : null}
+              <div style={{gridColumnStart: 1, gridColumnEnd: 2, gridRowStart: 1, GridRowEnd: 2, justifySelf: 'center', alignSelf: 'center'}}>
+                <p style= {{color: "white", marginTop: 6}}>Generate Tournament</p>
+              </div>
+              <div style={{gridColumnStart: 1, gridColumnEnd: 2, gridRowStart: 2, GridRowEnd: 2, justifySelf: 'center', alignSelf: 'center'}}>
+                <input
+                onSubmit={e => this.onSubmit(e)}
+                type="submit"
+                className={'pushBlue--flat'}
+                style={{}}
+                value=""
+                />
+              </div>
+              <div style={{gridColumnStart: 2, gridColumnEnd: 3, gridRowStart: 1, GridRowEnd: 2, justifySelf: 'center', alignSelf: 'center'}}>
+                <p style= {{color: "white", marginTop: 6}}>Change Combatant Quantity</p>
+              </div>
+              <div style={{gridColumnStart:2, gridColumnEnd: 3, gridRowStart: 2, GridRowEnd: 2, justifySelf: 'center', alignSelf: 'center'}}>
+                <Link to={"/players/"}>
+                <button
+                style={{}}
+                className={'pushBlue--flat'}></button>
+                </Link>
+              </div>
+          </div>
         </form>
       </div>
     </Fragment>
     );
   }
 }
+
+const backgroundColour = {
+  backgroundColor: 'black',
+};
 
 const labelStyle = {
   width: 100,

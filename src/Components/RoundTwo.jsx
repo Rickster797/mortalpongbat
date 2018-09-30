@@ -71,6 +71,8 @@ class RoundTwo extends Component {
 
     if (matches.length === 1) {
       this.setState({ finalRound: true });
+
+    
     }
   }
 
@@ -89,18 +91,20 @@ class RoundTwo extends Component {
     const { roundOver, roundNumber, winners, finalRound, matches } = this.state;
     return (
       <Fragment>
-        <h2>{ matches.length == 1 ? 'Final Round!' : `Round ${ roundNumber }... Fight!`}</h2>
-        {this.state.matches.map((match, i) => (
-        <div key={i} style={ divStyle }>
-          <p style={matchesBox}>{ match[0].playerName }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].playerName }</p>
-          <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].playerName + match[0].resultTxt }</button>
-          <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].playerName + match[1].resultTxt }</button>
-          <hr />
+        <div style={divCenterStyle}>
+          <h2>{ matches.length == 1 ? 'Final Round!' : `Round ${ roundNumber }... Fight!`}</h2>
+          {this.state.matches.map((match, i) => (
+          <div key={i} style={ divStyle }>
+            <p style={matchesBox}>{ match[0].playerName }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].playerName }</p>
+            <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].playerName + match[0].resultTxt }</button>
+            <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].playerName + match[1].resultTxt }</button>
+            <hr />
+          </div>
+          ))}
+          {matches.length > 1 ? <button style={ roundOver ? nextRound : finishThem }>{ matches.length == 2 ? 'Final Round up next!' : `Proceed to round ${ roundNumber+1 }... if you dare`}</button> : null}
+          {roundOver && matches.length > 1 ? <RoundTwo winners={winners} roundNumber={roundNumber+1}/> : null}
+          {finalRound ? <Winner winner = {winners} /> : null}
         </div>
-        ))}
-        {matches.length > 1 ? <button style={ roundOver ? nextRound : finishThem }>{ matches.length == 2 ? 'Final Round up next!' : `Proceed to round ${ roundNumber+1 }... if you dare`}</button> : null}
-        {roundOver && matches.length > 1 ? <RoundTwo winners={winners} roundNumber={roundNumber+1}/> : null}
-        {finalRound ? <Winner winner = {winners} /> : null}
       </Fragment>
     );
   }
@@ -111,10 +115,15 @@ const spanStyle = {
   fontWeight: 'bold'
 };
 
+const divCenterStyle = {
+  textAlign: 'center',
+};
+
 const divStyle = {
   width: 280,
   textAlign: 'center',
-  marginTop: 10
+  marginTop: 10,
+  margin: '0 auto 0 auto'
 };
 
 const matchesBox = {

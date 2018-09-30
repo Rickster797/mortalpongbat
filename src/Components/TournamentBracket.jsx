@@ -81,37 +81,45 @@ class TournamentBracket extends Component {
     const {roundOver, roundNumber, winners, finalRound} = this.state;
     return (
       <Fragment>
-        <h2>Round { roundNumber }... Fight!</h2>
-        {this.state.matches.map((match, i) => (
-        <div key={i} style={ divStyle }>
-          <p style={matchesBox}>{ match[0].playerName }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].playerName }</p>
-          <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].playerName + match[0].resultTxt }</button>
-          <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].playerName + match[1].resultTxt }</button>
-          <hr />
+        <div style={divCenterStyle}>
+          <h2>Round { roundNumber }... Fight!</h2>
+          {this.state.matches.map((match, i) => (
+          <div key={i} style={ divStyle }>
+            <p style={matchesBox}>{ match[0].playerName }&nbsp;<span style={ spanStyle }>VS</span>&nbsp;{ match[1].playerName }</p>
+            <button onClick={e => this.setResult(i, 0)} style={ match[0].style }>{match[0].playerName + match[0].resultTxt }</button>
+            <button onClick={e => this.setResult(i, 1)} style={ match[1].style }>{match[1].playerName + match[1].resultTxt }</button>
+            <hr />
+          </div>
+          ))}
+          <button style={ roundOver ? nextRound : finishThem }>Scroll down to round {roundNumber+1}... if you dare</button> 
+          {roundOver ? <RoundTwo winners={winners} roundNumber={roundNumber+1} finalRound={finalRound} /> : null}
         </div>
-        ))}
-        <button style={ roundOver ? nextRound : finishThem }>Proceed to round {roundNumber+1}... if you dare</button> 
-        {roundOver ? <RoundTwo winners={winners} roundNumber={roundNumber+1} finalRound={finalRound} /> : null}
       </Fragment>
     );
   }
 }
 
 const spanStyle = {
-  color: 'red',
+  color: 'gold',
   fontWeight: 'bold'
 };
 
-const divStyle = {
-  width: 280,
+const divCenterStyle = {
   textAlign: 'center',
-  marginTop: 10
+};
+
+const divStyle = {
+  width: 400,
+  textAlign: 'center',
+  marginTop: 10,
+  margin: '0 auto 0 auto'
+  // paddingRight: 50
+
 };
 
 const matchesBox = {
   border: 'black 1 solid',
   boxShadow: "0 0 8px 1px black",
-  margin: 10,
 };
 
 const finishThem = {
@@ -119,7 +127,7 @@ const finishThem = {
 };
 
 const nextRound = {
-  backgroundColor: 'green',
+  backgroundColor: 'darkGreen',
 };
 
 const buttonNeutralStyle = {
@@ -135,7 +143,7 @@ const buttonWinStyle = {
   color: 'white',
   width: 125,
   margin: 5,
-  backgroundColor: 'green',
+  backgroundColor: 'darkGreen',
   boxShadow: "0 0 8px 1px black",
 };
 
@@ -144,7 +152,7 @@ const buttonLoseStyle = {
   color: 'white',
   width: 125,
   margin: 5,
-  backgroundColor: 'red',
+  backgroundColor: 'darkRed',
 };
 
 export default TournamentBracket;
