@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <Fragment>
         <div>
-          <h2 className={'headerColour'} style={mainHeader}>MORTAL PONGBAT</h2>
+          <h2 className={'headerColour deepshadow'} style={mainHeader}>MORTAL PONGBAT</h2>
           <hr style={hrStyle} />
         </div>
       </Fragment>
@@ -19,18 +19,20 @@ class Header extends Component {
 const mainHeader = {
   fontFamily: 'Almendra',
   fontWeight: 'bold',
-  color: 'white',
+  color: 'black',
   fontStyle: 'italic',
   textAlign: "center",
   backgroundColor: "black",
   borderRadius: 2,
-  padding: 10
+  padding: 10,
+  boxShadow: "0 0 8px 5px black",
+  fontSize: '4em',
 };
 
 const hrStyle = {
     border: 0,
     height: 0, /* Firefox... */
-    boxShadow: "0 0 8px 1px black",
+    boxShadow: "0 0 8px 1px white",
     width: "99%",
 };
 

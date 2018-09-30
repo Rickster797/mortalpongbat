@@ -57,6 +57,7 @@ constructor(props) {
                 <div style={{ height: 10 }}/>
                 <p>{`Hit submit to create a Tournament for ${this.state.players} players`}</p>
             </div>
+           <iframe src="https://giphy.com/embed/kjReZ2vUmMBfG" width="320" height="180" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </div>
       </Fragment>
       )

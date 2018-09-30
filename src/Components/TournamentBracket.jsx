@@ -100,7 +100,7 @@ class TournamentBracket extends Component {
 }
 
 const spanStyle = {
-  color: 'gold',
+  color: 'darkRed',
   fontWeight: 'bold'
 };
 
@@ -119,7 +119,9 @@ const divStyle = {
 
 const matchesBox = {
   border: 'black 1 solid',
+  backgroundColor: 'lightGrey',
   boxShadow: "0 0 8px 1px black",
+  color: 'black',
 };
 
 const finishThem = {

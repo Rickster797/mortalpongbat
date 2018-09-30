@@ -106,7 +106,7 @@ class AddPlayers extends Component {
                 <input
                 onSubmit={e => this.onSubmit(e)}
                 type="submit"
-                className={'pushBlue--flat'}
+                className={'push--flat'}
                 style={{}}
                 value=""
                 />
@@ -118,7 +118,7 @@ class AddPlayers extends Component {
                 <Link to={"/players/"}>
                 <button
                 style={{}}
-                className={'pushBlue--flat'}></button>
+                className={"push--flat"}></button>
                 </Link>
               </div>
           </div>

@@ -4,8 +4,8 @@ class Winner extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = { winner: this.props.winner };
+    console.log(props);
+    this.state = {winner: this.props.winner};
   }
 
   render() {
@@ -14,7 +14,7 @@ class Winner extends Component {
 
     return (
       <Fragment>
-        <p>{winner} wins, flawless victory</p>
+        <h2>{winner} wins, flawless victory</h2>
         <iframe src="https://giphy.com/embed/7d7lKk2nH5RJu" width="480" height="323" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
       </Fragment>
     );

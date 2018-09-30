@@ -8,6 +8,7 @@ class RoundTwo extends Component {
     super(props);
 
     this.state = this.init(this.props.winners, this.props.roundNumber, this.props.finalRound);
+
   }
   /** to determine state, passing in players prop and round number prop */
   init(winners, roundNumber, finalRound) {
@@ -36,7 +37,7 @@ class RoundTwo extends Component {
   }
 
   /** matchWinner needs to be array index of 0 or 1 (for left or right player). */
-  setResult(matchIdx, matchWinner) {
+  setResult(matchIdx, matchWinner, $this) {
     const matches = this.state.matches;
     const match = matches[matchIdx];
     const winners = [];
@@ -71,7 +72,6 @@ class RoundTwo extends Component {
 
     if (matches.length === 1) {
       this.setState({ finalRound: true });
-
     
     }
   }
@@ -111,7 +111,7 @@ class RoundTwo extends Component {
 }
 
 const spanStyle = {
-  color: 'gold',
+  color: 'darkRed',
   fontWeight: 'bold'
 };
 
@@ -130,6 +130,8 @@ const matchesBox = {
   border: 'black 1 solid',
   boxShadow: "0 0 8px 1px black",
   margin: 10,
+  backgroundColor: 'lightGrey',
+  color: 'black'
 };
 
 const finishThem = {

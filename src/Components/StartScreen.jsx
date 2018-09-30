@@ -24,6 +24,8 @@ const blackText = {
 
 const divStyle = {
 	textAlign: 'center',
+  paddingTop: 20,
+  boxShadow: "0 0 8px 1px black"
 };
 
 export default StartScreen;
